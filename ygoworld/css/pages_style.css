@@ -1,0 +1,179 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows:6em 2em 1fr 3em;
+    height: 100%;
+}
+.header{
+    background-color: rgb(8, 8, 8);
+    border-bottom: solid white;
+    grid-row: 1/2;
+    display: flex;
+    justify-content: center;
+    font-size: 1.5em;
+
+    position: sticky;
+    top:0px;
+    z-index: 20;
+}
+.header h2{
+    color :white;
+}
+.header h2 sup{
+    color: goldenrod;
+}
+.main{
+    background : radial-gradient(gray,rgb(51, 51, 58));
+    grid-row: 3/4;
+    display: flex;
+    /*propiedades flex a los items de main*/
+    align-items: center;
+    flex-direction: column;
+
+   
+    
+}
+.footer{
+    background-color: rgb(8, 7, 7);
+    grid-row:4/5 ;
+    
+}
+.anuncio{
+    background-color: rgba( 0, 0, 0, .7);
+    grid-row:2/3 ;
+    text-align: center;
+    
+    
+}
+/*Articulos de Anime*/
+.anime_poster{
+    
+    background-color: aliceblue;
+    min-height: 60vh;
+    width: 80%;
+    margin-top: 1em;
+    margin-bottom:  1em;
+    display: grid;
+    /*propiedades grid*/
+    grid-template-columns: 1fr;
+    grid-template-rows: 4em 1fr 3em;
+    padding: 1em;
+    border: 2px solid rgb(65, 61, 61);
+    border-radius: 5%;
+}
+a{
+    text-decoration: none;
+}
+.anime_poster .h3 {
+    border-bottom: solid black;
+
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    min-height: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 1em;
+    z-index: 3;
+}
+.anime_poster .right_side{ 
+    display: none;
+    /*
+    grid-row-start:2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    
+     display: flex;
+     padding: 0.4em;
+     */
+}
+.anime_poster .left_side{
+   
+    grid-row-start:2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    /*flex*/
+    display: grid;
+    grid-template-columns: 1fr;
+    /*efectos*/
+    box-shadow: 3px 3px 4px rgb(49, 48, 48);
+  
+}
+.anime_poster .left_side:hover{
+    box-shadow: 2px 2px 4px rgb(27, 27, 27);
+}
+.anime_poster .bottom{
+    background-color: white;
+    grid-row-start:3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    /*flex*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.anime_poster .bottom a{
+    background-color: rgb(177, 26, 26);
+    color: white;
+    font-size: medium;
+    height: 90%;
+    width: 60%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.anime_poster .bottom a:hover{
+    background-color: rgb(238, 6, 6);
+    box-shadow: 2px 2px 4px rgb(63, 60, 60);
+    
+}
+
+/*fotos*/
+.poster{
+    grid-row: 1/2;
+    width: 100%;
+
+}
+/*media para dispositivos grandes ancho mayor a 600px*/
+@media(min-width:600px){
+
+.main{flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+}
+.anime_poster{
+    flex-basis: 45%;
+    max-width: 40vh;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+.poster{
+
+    width:100%;
+    align-self: center;
+    
+}
+.anime_poster .left_side{
+    display: flex;
+}
+.gximg{
+    height: 100%;
+    align-self: center;
+
+}
+
+}
