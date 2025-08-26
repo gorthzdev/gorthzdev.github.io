@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I66</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+     <!--  <div class="turn">GIRA EL TELEFONO</div>      --> 
+                   
+    
+    
+    <!--Capa 1 Dialogos-->
+    <div class="dialogues">
+        <div class="dialogues__character"></div>
+        <div class="dialogues__another"></div>
+        <div class="dialogues__chat">
+            <div class="dialogues__name"></div>
+            <div class="dialogues__text"></div>
+            <div class="dialogues_next"></div>
+        </div>
+    </div>
+    <!--Capa 2 Inventario-->
+    <div class="inventory">
+        <div class="inventory__closed">X</div>
+        <div class="inventory__slots">
+            <div class="inventory__slot" id="i-slot_0"></div>
+            <div class="inventory__slot" id="i-slot_1"></div>
+            <div class="inventory__slot" id="i-slot_2"></div>
+            <div class="inventory__slot" id="i-slot_3"></div>
+            <div class="inventory__slot" id="i-slot_4"></div>
+            <div class="inventory__slot" id="i-slot_5"></div>
+            <div class="inventory__slot" id="i-slot_6"></div>
+            <div class="inventory__slot" id="i-slot_7"></div>
+            <div class="inventory__slot" id="i-slot_8"></div>
+            <div class="inventory__slot" id="i-slot_9"></div>
+            <div class="inventory__slot" id="i-slot_10"></div>
+            <div class="inventory__slot" id="i-slot_11"></div>
+            <div class="inventory__slot" id="i-slot_12"></div>
+            <div class="inventory__slot" id="i-slot_13"></div>
+            <div class="inventory__slot" id="i-slot_14"></div>
+            <div class="inventory__slot" id="i-slot_15"></div>
+        </div>
+        <div class="inventory__item-description">
+            <div class="inventory__item-name"></div>
+            <div class="inventory__item-usage"></div>
+            <div class="inventory__use-button">USAR</div>
+        </div>
+    </div>
+    <!--personaje main-game -->
+    <div class="main">
+        <div class="main__name">
+            <div id="score">Score: 0</div>
+            <div class="diario" id="diario">Diario</div>
+        </div>
+        <div class="main__map-container">
+            <div class="map" id="map">
+                <div class="player" id="player">
+                </div>
+                <!--Casillas del tablero -->
+                <div class="square row-1 column-1 plantas">Start</div>
+                <div class="square row-1 column-2 plantas">1</div>
+                <div class="square row-1 column-3 plantas">2</div>
+                <div class="square row-1 column-4 plantas">3</div>
+                <div class="square  column-5 plantas">4</div>
+                <div class="square  column-5 plantas">5</div>
+                <div class="square  column-5 plantas">6</div>
+                <div class="square  column-5 plantas">7</div>
+                <div class="square  column-5 plantas">8</div>
+                <div class="square  row-6 column-5 plantas">9</div>
+                <div class="square row-6 column-4 plantas">10</div>
+
+                <div class="square row-6 column-3 plantas">11</div>
+                <div class="square row-6 column-2 plantas">12</div>
+                <div class="square row-6 column-1 plantas">13</div>
+                <div class="square row-7 column-1 plantas">14</div>
+                <div class="square row-8 column-1 plantas">15</div>
+                <div class="square row-8 plantas">16</div>
+                <div class="square row-8 plantas">17</div>
+                <div class="square row-8 plantas">18</div>
+                <div class="square row-8 column-5 plantas">19</div>
+                <div class="square row-9 column-5 plantas">20</div>
+                <div class="square row-10 column-5 plantas">21</div>
+
+                <div class="square row-11 column-5 plantas">22</div>
+                <div class="square row-11 plantas">23</div>
+                <div class="square row-11 plantas">24</div>
+                <div class="square row-11 plantas">25</div>
+                <div class="square row-10 column-8 plantas">26</div>
+                <div class="square row-9 column-8 plantas">27</div>
+                <div class="square row-8 column-8 plantas">28</div>
+                <div class="square row-7 column-8 plantas">29</div>
+                <div class="square row-6 column-8 plantas">30</div>
+                <div class="square row-5 column-8 plantas">31</div>
+                <div class="square row-4 column-8 plantas">32</div>
+
+                <div class="square row-3 column-8 plantas">33</div>
+                <div class="square row-2 column-8 ladrillo_tierra">34</div>
+                <div class="square row-1 column-8 ladrillos">35</div>
+                <div class="square row-1 column-9 puente">36</div>
+                <div class="square row-1 column-10 puente">37</div>
+                <div class="square row-1 column-11 puente">38</div>
+                <div class="square row-1 column-12 ladrillos">39</div>
+                <div class="square row-2 column-12 ladrillos">40</div>
+                <div class="square row-3 column-12 ladrillos">41</div>
+                <div class="square row-4 column-12 ladrillos">42</div>
+                <div class="square row-5 column-12 ladrillos">43</div>
+
+                <div class="square row-6 column-12 ladrillos">44</div>
+                <div class="square column-12 ladrillos">45</div>
+                <div class="square column-12 ladrillos">46</div>
+                <div class="square column-12 ladrillos">47</div>
+                <div class="square column-12 ladrillos">48</div>
+                <div class="square column-12 ladrillos">49</div>
+                <div class="square ladrillos">50</div>
+                <div class="square ladrillos">51</div>
+                <div class="square ladrillos">52</div>
+                <div class="square ladrillos">53</div>
+                <div class="square ladrillos">54</div>
+
+                <div class="square row-10 column-17 ladrillos">55</div>
+                <div class="square row-9 column-17 ladrillos">56</div>
+                <div class="square row-8 column-17 ladrillos">57</div>
+                <div class="square row-7 column-17 ladrillos">58</div>
+                <div class="square row-6 column-17 ladrillos">59</div>
+                <div class="square row-5 column-17 ladrillos">60</div>
+                <div class="square row-4 column-17 ladrillos">61</div>
+                <div class="square row-3 column-17 ladrillos">62</div>
+                <div class="square row-2 column-17 ladrillos">63</div>
+                <div class="square row-1 column-17 ladrillos">64</div>
+                <div class="square row-1 column-16 ladrillos">65</div>
+                <div class="square row-1 column-15 ladrillos">66</div>
+                <!--Areas-->
+                <div class="areas" id="area-a">A</div>
+                <div class="areas" id="area-b">B</div>
+                <div class="areas" id="area-c">C</div>
+                <div class="areas" id="area-d">D</div>
+
+                <div class="areas" id="area-e">E</div>
+                <!--
+        <div class="areas" id="area-f">F</div>
+        <div class="areas" id="area-g">G</div>
+        <div class="areas" id="area-h">H</div>
+        -->
+            </div>
+        </div>
+        <div class="main__buttons-container">
+            <div class="main__avanzar main__buttons">Avanzar</div>
+            <div class="main__inventory main__buttons">Inventario</div>
+            <div class="main__stats main__buttons">Personaje</div>
+        </div>
+    </div>
+    <!-- STATS-->
+    <div class="stats">
+        <div class="stats__closed">X</div>
+        <div class="stats__character-image"></div>
+        <div class="stats__equipment"></div>
+        <div class="stats__all-stats" id="all_stats"></div>
+    </div>
+    <!--BATTLE MENU-->
+    <div class="battle-menu">
+        <div class="battle-banner">BATALLA</div>
+        <div class="battle-characters">
+           <div class="battle-player"></div>
+           <div class="battle-enemy"></div>
+        </div>
+         <div class="battle-options">
+            <div class="atk_options">
+               <div class="battle__normal-attack" id="atacar">Normal Attack </div>
+               <div class="battle__special-attack" id="special_1">Special Attack [15 E]</div>
+               <div class="battle__special-attack2" id="special_2">Defense [5 E]</div>
+                <div class="battle__special-attack3"></div>
+            </div>
+             
+             <div class="enemy_atack-sequence">
+                <div class="enemy_seq" id="enemy_sec_0"></div>
+                <div class="enemy_seq " id="enemy_sec_1"></div>
+                <div class="enemy_seq" id="enemy_sec_2"></div>
+                <div class="enemy_seq" id="enemy_sec_3"></div>
+             </div>
+             
+         </div>
+         <div class="battle-chat"></div>
+    </div>
+    <!--GameOver-->
+    <div class="gameover">
+        <div class="gameover_central">
+            <div class="gameover_tittle">GAME OVER</div>
+            <div class="gameover_score"></div>
+            <div class="gameover_message"></div>
+        </div>
+    </div>
+    
+    <!--diario-->
+    <div class="diario-styles">
+        <div class="diario__closed">X</div>
+        <div class="diario-header">DIARIO</div>
+        <div class="diario-elements">
+           
+        </div>
+        <div class="diario-info"></div>
+    </div>
+  
+
+    <script src="scripts/main.js" type="module"></script>
+</body>
+
+</html>

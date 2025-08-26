@@ -1,0 +1,160 @@
+/*variables css for responsive*/
+:root {
+  --large-fonts: 3rem;
+  --litle-fonts: 1.5rem;
+  --small-fonts: 0.8rem;
+  --mini-fonts: 0.5rem;
+}
+
+/*
+uso @include from(l){
+        margin-bottom: 4rem;
+    }
+
+
+*/
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.select-class {
+  display: flex;
+  flex-wrap: wrap;
+  /*
+   grid-template-columns: repeat(4,1fr);
+   grid-template-rows: 80% 1fr;
+   */
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  grid-gap: 1rem;
+  padding: 2.5rem;
+  background-color: rgb(58, 41, 92);
+  text-align: center;
+  /*mixin para media queries , este comprueba si tiene claves determinadas y si , aplica una media querie u otra*/
+}
+@media screen and (max-height: 430px) {
+  .select-class {
+    font-size: var(--litle-fonts);
+    padding: 0.8rem;
+  }
+}
+.select-class .class-poster_container {
+  height: 85%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  width: 100%;
+  background-color: rgb(45, 5, 45);
+  grid-gap: 1rem;
+  /*mixin para media queries , este comprueba si tiene claves determinadas y si , aplica una media querie u otra*/
+}
+@media screen and (max-height: 430px) {
+  .select-class .class-poster_container {
+    font-size: var(--litle-fonts);
+    grid-gap: 0.5rem;
+  }
+}
+.select-class .class-poster {
+  padding: 0.4rem;
+  background-color: white;
+  padding-bottom: 0.4rem;
+  /*
+  :hover{
+     outline: 0.5rem solid goldenrod inset ;
+  }
+  :active{
+     outline: 0.5rem solid goldenrod inset ;
+  }
+     */
+}
+.select-class .select-this {
+  background-color: rgb(45, 5, 45);
+  width: 25%;
+  margin: 0 auto;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15%;
+  color: white;
+  font-size: 2rem;
+  /*mixin para media queries , este comprueba si tiene claves determinadas y si , aplica una media querie u otra*/
+}
+@media screen and (max-height: 430px) {
+  .select-class .select-this {
+    font-size: var(--litle-fonts);
+    height: 12%;
+  }
+}
+
+.class-name {
+  font-size: 2rem;
+  background-color: black;
+  color: white;
+  padding: 0.2rem;
+  /*mixin para media queries , este comprueba si tiene claves determinadas y si , aplica una media querie u otra*/
+  /*mixin para media queries , este comprueba si tiene claves determinadas y si , aplica una media querie u otra*/
+}
+@media screen and (max-height: 430px) {
+  .class-name {
+    font-size: var(--litle-fonts);
+  }
+}
+@media screen and (max-height: 361px) {
+  .class-name {
+    font-size: 0.5rem;
+    padding: 0.7rem;
+  }
+}
+
+.class-description {
+  font-size: 1rem;
+  background-color: rgb(203, 153, 44);
+  color: white;
+  border: 1px solid black;
+  /*mixin para media queries , este comprueba si tiene claves determinadas y si , aplica una media querie u otra*/
+}
+.class-description p {
+  padding: 0.2rem;
+}
+@media screen and (max-height: 430px) {
+  .class-description {
+    font-size: 0.5rem;
+    background-color: rgb(40, 26, 14);
+  }
+}
+
+.turn {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background-color: rgb(25, 25, 24);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*mixin para media queries , este comprueba si tiene claves determinadas y si , aplica una media querie u otra*/
+}
+@media screen and (max-height: 430px) {
+  .turn {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=class.css.map */
