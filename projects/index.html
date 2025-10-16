@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxia Web - Mi Roadmap de Aprendizaje</title>
+    <style>
+        :root {
+            --primary: #6c63ff;
+            --secondary: #ff6584;
+            --dark: #1a1a2e;
+            --darker: #0f0f1a;
+            --light: #f5f5f7;
+            --accent: #36d1dc;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(108, 99, 255, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .galaxy {
+            position: relative;
+            min-height: 600px;
+            margin: 2rem 0;
+            overflow: hidden;
+            border-radius: 20px;
+            background: rgba(10, 10, 20, 0.5);
+            box-shadow: 0 0 50px rgba(108, 99, 255, 0.1);
+        }
+        
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 5s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+        
+        .solar-system {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+        
+        .sun {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #ff9d00, #ff6600);
+            border-radius: 50%;
+            box-shadow: 0 0 50px #ff6600;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .sun:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 0 0 70px #ff6600;
+        }
+        
+        .orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .planet {
+            position: absolute;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.7rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 4;
+        }
+        
+        .planet:hover {
+            transform: scale(1.2);
+            z-index: 5;
+        }
+        
+        .planet-info {
+            position: absolute;
+            background: rgba(26, 26, 46, 0.9);
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            padding: 1rem;
+            width: 300px;
+            z-index: 100;
+            box-shadow: 0 0 20px rgba(108, 99, 255, 0.3);
+            backdrop-filter: blur(10px);
+            display: none;
+        }
+        
+        .planet-info h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .planet-info p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .planet-info a {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .planet-info a:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            z-index: 10;
+            position: relative;
+        }
+        
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(54, 209, 220, 0.4);
+        }
+        
+        .list-view {
+            display: none;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background: rgba(26, 26, 46, 0.7);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateX(5px);
+            background: rgba(26, 26, 46, 0.9);
+        }
+        
+        .project-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-card .meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .project-card a {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card a:hover {
+            background: var(--accent);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .galaxy {
+                min-height: 400px;
+            }
+            
+            .planet {
+                font-size: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Galaxia Web</h1>
+            <p class="subtitle">Mi roadmap interactivo para dominar las tecnologías web. Explora los proyectos que forman parte de mi viaje de aprendizaje.</p>
+        </header>
+        
+        <div class="controls">
+            <button class="btn" id="viewToggle">
+                <span>Vista de Lista</span>
+            </button>
+            <button class="btn" id="resetView">
+                <span>Reiniciar Vista</span>
+            </button>
+        </div>
+        
+        <div class="galaxy">
+            <div class="stars" id="stars"></div>
+            <div class="solar-system" id="solarSystem">
+                <!-- Los planetas se generarán con JavaScript -->
+            </div>
+        </div>
+        
+        <div class="list-view" id="listView">
+            <!-- La lista de proyectos se generará con JavaScript -->
+        </div>
+        
+        <footer>
+            <p>Explora mi universo de aprendizaje - Creado con ❤️ para GitHub</p>
+        </footer>
+    </div>
+
+    <script>
+        // Datos de los proyectos
+        const projects = [
+            {
+                id: 1,
+                title: "WebSite Cool React + Tailwind",
+                duration: "3h",
+                url: "https://youtu.be/B91wc5dCEBA?list=PL6QREj8te1P6CkO_4OIK1-nwG5OxCD5tR",
+                category: "React",
+                description: "Creación de un sitio web moderno utilizando React y Tailwind CSS."
+            },
+            {
+                id: 2,
+                title: "WebSite React JS 3D",
+                duration: "4h",
+                url: "https://youtu.be/kRQbRAJ4-Fs?list=PL6QREj8te1P6CkO_4OIK1-nwG5OxCD5tR",
+                category: "React 3D",
+                description: "Desarrollo de un sitio web con elementos 3D utilizando React."
+            },
+            {
+                id: 3,
+                title: "React Js Portafolio 2D",
+                duration: "3h",
+                url: "https://youtu.be/ifOJ0R5UQOc",
+                category: "Portfolio",
+                description: "Construcción de un portafolio personal en 2D con React."
+            },
+            {
+                id: 4,
+                title: "WebSite // Next JS Youtube",
+                duration: "2h",
+                url: "https://youtu.be/ugCN_gynFYw?list=PL6QREj8te1P6CkO_4OIK1-nwG5OxCD5tR",
+                category: "Next.js",
+                description: "Clon de YouTube desarrollado con Next.js."
+            },
+            {
+                id: 5,
+                title: "3D portfolio React + Three JS",
+                duration: "3h",
+                url: "https://youtu.be/FkowOdMjvYo?list=PL6QREj8te1P6CkO_4OIK1-nwG5OxCD5tR",
+                category: "React 3D",
+                description: "Portafolio en 3D creado con React y Three.js."
+            },
+            {
+                id: 6,
+                title: "Aplicación de Ejercicios React API",
+                duration: "2h",
+                url: "https://youtu.be/KBpoBc98BwM?list=PL6QREj8te1P6wX9m5KnicnDVEucbOPsqR",
+                category: "React API",
+                description: "Aplicación de ejercicios que consume una API con React."
+            },
+            {
+                id: 7,
+                title: "React Gemini Clone",
+                duration: "2h",
+                url: "https://youtu.be/0yboGn8errU?list=PLjwm_8O3suyMMs7kfDD-p-yIhlmEgJkDj",
+                category: "React",
+                description: "Clon de la interfaz de Gemini desarrollado con React."
+            },
+            {
+                id: 8,
+                title: "3D portfolio React + Three JS",
+                duration: "4h",
+                url: "https://youtu.be/E-fdPfRxkzQ",
+                category: "React 3D",
+                description: "Otro portafolio en 3D utilizando React y Three.js con diferentes características."
+            },
+            {
+                id: 9,
+                title: "Clon de Spotify con Redux",
+                duration: "2h",
+                url: "https://youtu.be/I1cpb0tYV74?list=PL6QREj8te1P6wX9m5KnicnDVEucbOPsqR",
+                category: "React Redux",
+                description: "Clon de Spotify que implementa Redux para la gestión del estado."
+            },
+            {
+                id: 10,
+                title: "React Admin Dashboard",
+                duration: "5h",
+                url: "https://youtu.be/6a3Dz8gwjdg?list=PL6QREj8te1P6wX9m5KnicnDVEucbOPsqR",
+                category: "React Dashboard",
+                description: "Dashboard administrativo con datos en tiempo real, ChartJS, Kanban y CRM."
+            },
+            {
+                id: 11,
+                title: "Clon de Figma con Next.js",
+                duration: "4h",
+                url: "https://youtu.be/oKIThIihv60",
+                category: "Next.js",
+                description: "Clon de la interfaz de Figma desarrollado con Next.js."
+            },
+            {
+                id: 12,
+                title: "Next.js con Sistema de Pagos",
+                duration: "6h",
+                url: "https://www.youtube.com/watch?v=TToPJy1kTAw&pp=ygUXcHJveWVjdG9zIHRvcCBSZWFjdCBqcyA%3D",
+                category: "Next.js",
+                description: "Aplicación Next.js con implementación de sistema de pagos."
+            },
+            {
+                id: 13,
+                title: "Sistema de Ventas con PostgreSQL",
+                duration: "48h",
+                url: "https://www.youtube.com/watch?v=TToPJy1kTAw&pp=ygUXcHJveWVjdG9zIHRvcCBSZWFjdCBqcyA%3D",
+                category: "Fullstack",
+                description: "Sistema completo de ventas con backend y base de datos PostgreSQL."
+            },
+            {
+                id: 14,
+                title: "Ecommerce con Stripe",
+                duration: "4h",
+                url: "https://youtu.be/4mOkFXyxfsU?list=PL6QREj8te1P6wX9m5KnicnDVEucbOPsqR",
+                category: "Ecommerce",
+                description: "Tienda online con integración de Stripe para procesamiento de pagos."
+            },
+            {
+                id: 15,
+                title: "Sistema de Control de Gastos",
+                duration: "15h",
+                url: "https://youtu.be/xnFhaVTgGGs?list=PLp-3gBgEtAE_nbqamgSpDUp8QsW4nWj2Q",
+                category: "React",
+                description: "Aplicación completa para el control y gestión de gastos personales."
+            },
+            {
+                id: 16,
+                title: "Zustand Tutorial",
+                duration: "9h",
+                url: "https://youtu.be/1_dj9hIfgYs?list=PLp-3gBgEtAE_nbqamgSpDUp8QsW4nWj2Q",
+                category: "State Management",
+                description: "Tutorial completo sobre Zustand para la gestión de estado en React."
+            },
+            {
+                id: 17,
+                title: "Typescript YouTube",
+                duration: "N/A",
+                url: "https://youtu.be/sBgcHD1JsL4",
+                category: "TypeScript",
+                description: "Proyecto relacionado con TypeScript y YouTube."
+            },
+            {
+                id: 18,
+                title: "Sistema para Restaurante React + Tailwind",
+                duration: "N/A",
+                url: "https://www.youtube.com/watch?v=SwQR57eH74Q&list=PL9swehPghjYT4HUxnIWxmDM3HKx1Tbu_t&index=2&pp=gAQBiAQB0gcJCckJAYcqIYzv",
+                category: "React",
+                description: "Sistema completo para gestión de restaurante con React y Tailwind."
+            },
+            {
+                id: 19,
+                title: "Sistema de Ventas Fullstack [Graduación]",
+                duration: "N/A",
+                url: "https://youtu.be/URG4rnmdThs?list=PL9swehPghjYTFvinY93IoEebGWTaUD5xr",
+                category: "Fullstack",
+                description: "Proyecto de graduación: sistema de ventas fullstack completo."
+            },
+            {
+                id: 20,
+                title: "Zustand + React [PRO]",
+                duration: "N/A",
+                url: "#",
+                category: "State Management",
+                description: "Implementación profesional de Zustand con React."
+            }
+        ];
+
+        // Colores para las categorías
+        const categoryColors = {
+            "React": "#61dafb",
+            "React 3D": "#8a2be2",
+            "Portfolio": "#ff6b6b",
+            "Next.js": "#000000",
+            "React API": "#4ecdc4",
+            "React Redux": "#764abc",
+            "React Dashboard": "#45b7d1",
+            "Ecommerce": "#f9a826",
+            "Fullstack": "#26c6da",
+            "State Management": "#ab47bc",
+            "TypeScript": "#3178c6"
+        };
+
+        // Crear estrellas de fondo
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = 200;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Posición aleatoria
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                
+                // Tamaño aleatorio
+                const size = Math.random() * 2 + 1;
+                
+                // Retraso de animación aleatorio
+                const delay = Math.random() * 5;
+                
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.animationDelay = `${delay}s`;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Crear sistema solar con proyectos
+        function createSolarSystem() {
+            const solarSystem = document.getElementById('solarSystem');
+            
+            // Crear el sol (proyecto central)
+            const sun = document.createElement('div');
+            sun.classList.add('sun');
+            sun.textContent = "Mi Roadmap";
+            sun.addEventListener('click', () => {
+                alert("¡Bienvenido a mi galaxia de aprendizaje! Cada planeta representa un proyecto que formará parte de mi viaje para dominar las tecnologías web.");
+            });
+            solarSystem.appendChild(sun);
+            
+            // Crear órbitas y planetas
+            const orbitCount = 5;
+            const planetsPerOrbit = Math.ceil(projects.length / orbitCount);
+            
+            for (let orbitIndex = 0; orbitIndex < orbitCount; orbitIndex++) {
+                const orbit = document.createElement('div');
+                orbit.classList.add('orbit');
+                
+                // Radio de la órbita (aumenta con cada órbita)
+                const orbitRadius = 120 + (orbitIndex * 80);
+                orbit.style.width = `${orbitRadius * 2}px`;
+                orbit.style.height = `${orbitRadius * 2}px`;
+                
+                solarSystem.appendChild(orbit);
+                
+                // Calcular cuántos planetas en esta órbita
+                const startIndex = orbitIndex * planetsPerOrbit;
+                const endIndex = Math.min(startIndex + planetsPerOrbit, projects.length);
+                const orbitPlanets = projects.slice(startIndex, endIndex);
+                
+                // Crear planetas para esta órbita
+                orbitPlanets.forEach((project, planetIndex) => {
+                    const angle = (planetIndex / orbitPlanets.length) * 2 * Math.PI;
+                    const x = Math.cos(angle) * orbitRadius;
+                    const y = Math.sin(angle) * orbitRadius;
+                    
+                    const planet = document.createElement('div');
+                    planet.classList.add('planet');
+                    planet.textContent = project.id;
+                    planet.dataset.projectId = project.id;
+                    
+                    // Tamaño basado en la duración del proyecto
+                    const size = project.duration === "N/A" ? 30 : 
+                                 parseInt(project.duration) < 3 ? 30 :
+                                 parseInt(project.duration) < 5 ? 40 : 50;
+                    
+                    planet.style.width = `${size}px`;
+                    planet.style.height = `${size}px`;
+                    planet.style.backgroundColor = categoryColors[project.category] || '#6c63ff';
+                    planet.style.boxShadow = `0 0 15px ${categoryColors[project.category] || '#6c63ff'}`;
+                    
+                    // Posicionar el planeta
+                    planet.style.left = `calc(50% + ${x}px)`;
+                    planet.style.top = `calc(50% + ${y}px)`;
+                    planet.style.transform = `translate(-50%, -50%)`;
+                    
+                    // Crear información del planeta
+                    const planetInfo = document.createElement('div');
+                    planetInfo.classList.add('planet-info');
+                    planetInfo.id = `info-${project.id}`;
+                    planetInfo.innerHTML = `
+                        <h3>${project.title}</h3>
+                        <p><strong>Categoría:</strong> ${project.category}</p>
+                        <p><strong>Duración:</strong> ${project.duration}</p>
+                        <p>${project.description}</p>
+                        <a href="${project.url}" target="_blank">Ver Proyecto</a>
+                    `;
+                    
+                    solarSystem.appendChild(planetInfo);
+                    
+                    // Eventos para mostrar/ocultar información
+                    planet.addEventListener('mouseenter', () => {
+                        planetInfo.style.display = 'block';
+                        // Posicionar la información cerca del planeta
+                        const rect = planet.getBoundingClientRect();
+                        const solarRect = solarSystem.getBoundingClientRect();
+                        
+                        planetInfo.style.left = `${rect.left - solarRect.left + rect.width}px`;
+                        planetInfo.style.top = `${rect.top - solarRect.top}px`;
+                    });
+                    
+                    planet.addEventListener('mouseleave', () => {
+                        planetInfo.style.display = 'none';
+                    });
+                    
+                    planet.addEventListener('click', () => {
+                        window.open(project.url, '_blank');
+                    });
+                    
+                    solarSystem.appendChild(planet);
+                });
+            }
+        }
+
+        // Crear vista de lista
+        function createListView() {
+            const listView = document.getElementById('listView');
+            
+            // Agrupar proyectos por categoría
+            const projectsByCategory = {};
+            projects.forEach(project => {
+                if (!projectsByCategory[project.category]) {
+                    projectsByCategory[project.category] = [];
+                }
+                projectsByCategory[project.category].push(project);
+            });
+            
+            // Crear secciones por categoría
+            Object.keys(projectsByCategory).forEach(category => {
+                const categorySection = document.createElement('div');
+                categorySection.innerHTML = `<h2 style="color: ${categoryColors[category] || '#6c63ff'}; margin: 2rem 0 1rem 0;">${category}</h2>`;
+                listView.appendChild(categorySection);
+                
+                projectsByCategory[category].forEach(project => {
+                    const projectCard = document.createElement('div');
+                    projectCard.classList.add('project-card');
+                    projectCard.innerHTML = `
+                        <h3>${project.title}</h3>
+                        <div class="meta">
+                            <span>Duración: ${project.duration}</span>
+                            <span>Categoría: ${project.category}</span>
+                        </div>
+                        <p>${project.description}</p>
+                        <a href="${project.url}" target="_blank">Ver Proyecto</a>
+                    `;
+                    listView.appendChild(projectCard);
+                });
+            });
+        }
+
+        // Cambiar entre vista galaxia y lista
+        function setupViewToggle() {
+            const viewToggle = document.getElementById('viewToggle');
+            const galaxy = document.querySelector('.galaxy');
+            const listView = document.getElementById('listView');
+            
+            viewToggle.addEventListener('click', () => {
+                if (listView.style.display === 'none' || listView.style.display === '') {
+                    // Cambiar a vista de lista
+                    listView.style.display = 'block';
+                    galaxy.style.display = 'none';
+                    viewToggle.innerHTML = '<span>Vista Galaxia</span>';
+                } else {
+                    // Cambiar a vista galaxia
+                    listView.style.display = 'none';
+                    galaxy.style.display = 'block';
+                    viewToggle.innerHTML = '<span>Vista de Lista</span>';
+                }
+            });
+        }
+
+        // Reiniciar vista
+        function setupResetView() {
+            const resetView = document.getElementById('resetView');
+            
+            resetView.addEventListener('click', () => {
+                const listView = document.getElementById('listView');
+                const galaxy = document.querySelector('.galaxy');
+                
+                listView.style.display = 'none';
+                galaxy.style.display = 'block';
+                
+                document.getElementById('viewToggle').innerHTML = '<span>Vista de Lista</span>';
+            });
+        }
+
+        // Inicializar la aplicación
+        function init() {
+            createStars();
+            createSolarSystem();
+            createListView();
+            setupViewToggle();
+            setupResetView();
+        }
+
+        // Ejecutar cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
